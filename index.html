@@ -5,7 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cycle Tracker</title>
     <link rel="stylesheet" href="style.css" />
-    <link rel="manifest" href="cycletracker.json" />
+    <link
+      rel="canonical"
+      href="https://github.com/sashauly/cycle-tracker-pwa/"
+    />
+    <link rel="manifest" href="/cycle-tracker-pwa/cycletracker.json" />
     <link rel="icon" href="icons/circle.svg" />
   </head>
   <body>
@@ -36,8 +40,10 @@
     <script src="app.js" defer></script>
     <!-- Register the app's service worker. -->
     <script>
-      if ("serviceWorker" in navigator) {
-        navigator.serviceWorker.register("sw.js");
+      if (navigator.serviceWorker) {
+        navigator.serviceWorker.register("/cycle-tracker-pwa/sw.js", {
+          scope: "/cycle-tracker-pwa/",
+        });
       }
     </script>
   </body>
